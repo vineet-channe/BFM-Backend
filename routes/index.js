@@ -1,0 +1,22 @@
+import express from "express";
+import MetaversesRoute from "./MetaversesRoute";
+import MetaverseCategoriesRoute from "./MetaverseCategoriesRoute";
+import NewsCategoriesRoute from "./NewsCategoriesRoute";
+import NewsRoute from "./NewsRoute";
+import TopEcosystemLogosRoute from "./TopEcosystemLogosRoute";
+import VideosRoute from "./VideosRoute";
+import ArticlesRoute from "./ArticlesRoute";
+import EcommerceBannersRoute from "./EcommerceBannersRoute";
+import FooterContentRoute from "./FooterContentRoute";
+const router = express.Router();
+router.use('/metaverses',MetaversesRoute);
+router.use('/metaverse-categories',MetaverseCategoriesRoute);
+router.use('/news-categories',NewsCategoriesRoute);
+router.use('/news',NewsRoute);
+router.use('/top-ecosystem-logos',TopEcosystemLogosRoute);
+router.use('/videos',VideosRoute);
+router.use('/articles',ArticlesRoute);
+router.use('/ecommerce-banners',EcommerceBannersRoute);
+router.use('/footer-content',FooterContentRoute);
+
+export default router;
