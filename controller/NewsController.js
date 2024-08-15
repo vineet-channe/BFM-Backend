@@ -1,21 +1,19 @@
-import router from "../routes/NewsRoute";
+export const getNews= (req,res) => {
 
-router.post('/',(req,res)=>{
+}
 
-});
+export const getAllNews = (req,res) => {
 
-router.get('/',(req,res)=>{
+}
 
-});
+export const postNews= (req,res) => {
 
-router.get('/:id',(req,res)=>{
+}
 
-});
+export const updateNews = (req,res) => {
 
-router.put('/:id',(req,res)=>{
+}
 
-});
+export const deleteNews = (req,res) => {
 
-router.delete('/:id',(req,res)=>{
-
-});
+}

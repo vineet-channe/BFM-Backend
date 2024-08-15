@@ -1,3 +1,10 @@
 import express from "express";
-const router = express.Router();
-export default router;
+import { deleteEcommerceBanners, getAllEcommerceBanners, postEcommerceBanners, updateEcommerceBanners } from "../controller/EcommerceBannersController";
+const EcommerceBannersrouter = express.Router();
+
+EcommerceBannersrouter.post('/',postEcommerceBanners);
+EcommerceBannersrouter.get('/',getAllEcommerceBanners);
+EcommerceBannersrouter.put('/:id',updateEcommerceBanners);
+EcommerceBannersrouter.delete('/:id',deleteEcommerceBanners);
+
+

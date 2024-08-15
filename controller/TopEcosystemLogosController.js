@@ -1,17 +1,16 @@
-import router from "../routes/TopEcosystemLogosRoute";
 
-router.post('/',(req,res)=>{
+export const getAllTopEcosystemLogos = (req,res) => {
 
-});
+}
 
-router.get('/',(req,res)=>{
+export const postTopEcosystemLogos= (req,res) => {
 
-});
+}
 
-router.put('/:id',(req,res)=>{
+export const updateTopEcosystemLogos = (req,res) => {
 
-});
+}
 
-router.delete('/:id',(req,res)=>{
+export const deleteTopEcosystemLogos = (req,res) => {
 
-});
+}

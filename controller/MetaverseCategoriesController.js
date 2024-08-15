@@ -1,21 +1,20 @@
-import router from "../routes/MetaverseCategoriesRoute";
+export const getMetaverseCategories = (req,res) => {
 
-router.post('/',(req,res)=>{
+}
 
-});
+export const getAllMetaverseCategories = (req,res) => {
 
-router.get('/',(req,res)=>{
+}
 
-});
+export const postMetaverseCategories = (req,res) => {
 
-router.get('/:id',(req,res)=>{
+}
 
-});
+export const updateMetaverseCategories = (req,res) => {
 
-router.put('/:id',(req,res)=>{
+}
 
-});
+export const deleteMetaverseCategories = (req,res) => {
 
-router.delete('/:id',(req,res)=>{
+}
 
-});

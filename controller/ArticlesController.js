@@ -1,21 +1,20 @@
-import router from "../routes/ArticlesRoute";
 
-router.post('/',(req,res)=>{
+export const getArticles = (req, res) =>{
 
-});
+}
 
-router.get('/',(req,res)=>{
+export const getAllArticles = (req, res) =>{
     
-});
+}
 
-router.get('/:id',(req,res)=>{
+export const postArticles = (req, res) =>{
     
-});
+}
 
-router.put('/:id',(req,res)=>{
+export const updateArticles = (req, res) =>{
     
-});
+}
 
-router.delete('/:id',(req,res)=>{
+export const deleteAtricles = (req, res) =>{
     
-});
+}

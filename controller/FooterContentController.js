@@ -1,9 +1,7 @@
-import router from "../routes/FooterContentRoute";
+export const getFooterContent = (req,res)=>{
 
-router.post('/',(req,res)=>{
+}
 
-});
-
-router.get('/',(req,res)=>{
-
-});
+export const postFooterContent = (req,res)=>{
+    
+}

@@ -1,3 +1,9 @@
 import express from "express";
-const router = express.Router();
-export default router;
+import { getAllVideos,getVideos,postVideos,updateVideos,deleteVideos } from "../controller/VideosController";
+const Videosrouter = express.Router();
+
+Videosrouter.get('/',getAllVideos);
+Videosrouter.get('/:id',getVideos);
+Videosrouter.post('/',postVideos);
+Videosrouter.put('/:id',updateVideos);
+Videosrouter.delete("/:id",deleteVideos);

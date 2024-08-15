@@ -1,21 +1,20 @@
-import router from "../routes/VideosRoute";
 
-router.post('/',(req,res)=>{
+export const getVideos= (req,res) => {
 
-});
+}
 
-router.get('/',(req,res)=>{
+export const getAllVideos = (req,res) => {
 
-});
+}
 
-router.get('/:id',(req,res)=>{
+export const postVideos= (req,res) => {
 
-});
+}
 
-router.put('/:id',(req,res)=>{
+export const updateVideos = (req,res) => {
 
-});
+}
 
-router.delete('/:id',(req,res)=>{
+export const deleteVideos = (req,res) => {
 
-});
+}

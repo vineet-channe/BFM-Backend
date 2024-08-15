@@ -1,21 +1,19 @@
-import router from "../routes/NewsCategoriesRoute";
+export const getNewsCategories= (req,res) => {
 
-router.post('/',(req,res)=>{
+}
 
-});
+export const getAllNewsCategories = (req,res) => {
 
-router.get('/',(req,res)=>{
+}
 
-});
+export const postNewsCategories= (req,res) => {
 
-router.get('/:id',(req,res)=>{
+}
 
-});
+export const updateNewsCategories = (req,res) => {
 
-router.put('/:id',(req,res)=>{
+}
 
-});
+export const deleteNewsCategories = (req,res) => {
 
-router.delete('/:id',(req,res)=>{
-
-});
+}

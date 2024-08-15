@@ -1,3 +1,6 @@
 import express from "express";
-const router = express.Router();
-export default router;
+import {getFooterContent,postFooterContent} from "../controller/FooterContentController"
+const FooterContentrouter = express.Router();
+
+FooterContentrouter.get('/',getFooterContent);
+FooterContentrouter.post('/',postFooterContent);
