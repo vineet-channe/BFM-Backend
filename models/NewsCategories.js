@@ -5,4 +5,4 @@ const NewsCategoriesSchema = new mongoose.Schema({
     news : [{type : mongoose.Schema.Types.ObjectId, ref : 'News'}]
 });
 
-module.exports = mongoose.model("NewsCategories",NewsCategorySchema);
+module.exports = mongoose.model("NewsCategories",NewsCategoriesSchema);

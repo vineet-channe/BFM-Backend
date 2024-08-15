@@ -5,4 +5,4 @@ const MetaverseCategoriesSchema = new mongoose.Schema({
     metaverses  : [{type : mongoose.Schema.Types.ObjectId, ref : 'Metaverse'}]
 });
 
-module.exports = mongoose.model("MetaverseCategories", MetaverseCategorySchema);
+module.exports = mongoose.model("MetaverseCategories", MetaverseCategoriesSchema);

@@ -13,4 +13,4 @@ const MetaversesSchema = new mongoose.Schema({
     news: [{ type: mongoose.Schema.Types.ObjectId, ref: 'News' }]
 });
 
-module.exports = mongoose.model('Metaverses', MetaverseSchema);
+module.exports = mongoose.model('Metaverses', MetaversesSchema);

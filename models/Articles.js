@@ -7,4 +7,4 @@ const ArticlesSchema = new mongoose.Schema({
     createdAt : {type : Date, default : Date.now}
 });
 
-module.exports = mongoose.model("Articles",ArticleSchema);
+module.exports = mongoose.model("Articles",ArticlesSchema);
