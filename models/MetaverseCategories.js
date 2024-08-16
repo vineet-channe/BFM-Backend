@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const MetaverseCategoriesSchema = new mongoose.Schema({
     title : String,
     metaverses  : [{type : mongoose.Schema.Types.ObjectId, ref : 'Metaverse'}]
 });
 
-module.exports = mongoose.model("MetaverseCategories", MetaverseCategoriesSchema);
+export default mongoose.model("MetaverseCategories", MetaverseCategoriesSchema);
+

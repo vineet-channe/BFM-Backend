@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const NewsCategoriesSchema = new mongoose.Schema({
     title : String,
     news : [{type : mongoose.Schema.Types.ObjectId, ref : 'News'}]
 });
 
-module.exports = mongoose.model("NewsCategories",NewsCategoriesSchema);
+export default mongoose.model("NewsCategories", NewsCategoriesSchema);

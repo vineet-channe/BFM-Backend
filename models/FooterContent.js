@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const FooterContentSchema = new mongoose.Schema({
     socialMediaHandles : [{type : String}],
@@ -7,4 +7,4 @@ const FooterContentSchema = new mongoose.Schema({
     privacyPolicy : String
 });
 
-mongoose.model = mongoose.model("FooterContent",FooterContentSchema);
+export default mongoose.model("FooterContent", FooterContentSchema);

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const TopEcosystemLogosSchema = new mongoose.Schema({
     name : String,
@@ -6,4 +6,4 @@ const TopEcosystemLogosSchema = new mongoose.Schema({
     createdAt : {type : Date, default : Date.now}
 });
 
-module.exports = mongoose.model("TopEcosystemLogos",TopEcosystemLogosSchema);
+export default mongoose.model("TopEcosystemLogos", TopEcosystemLogosSchema);

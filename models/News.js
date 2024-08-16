@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const NewsSchema = new mongoose.Schema({
     title : String,
@@ -6,4 +6,4 @@ const NewsSchema = new mongoose.Schema({
     metaverse : {type : mongoose.Schema.Types.ObjectId , ref : "Metaverses"}
 });
 
-module.exports = mongoose.model("News",NewsSchema);
+export default mongoose.model("News", NewsSchema);

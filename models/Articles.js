@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const ArticlesSchema = new mongoose.Schema({
     title: String,
-    source : String,
-    link : String,
-    createdAt : {type : Date, default : Date.now}
+    source: String,
+    link: String,
+    createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("Articles",ArticlesSchema);
+export default mongoose.model("Articles", ArticlesSchema);

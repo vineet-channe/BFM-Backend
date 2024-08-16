@@ -1,6 +1,6 @@
 
 export const getArticles = (req, res) =>{
-
+    
 }
 
 export const getAllArticles = (req, res) =>{

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const EcommerceBannersSchema = new mongoose.Schema({
     title : String,
@@ -6,4 +6,4 @@ const EcommerceBannersSchema = new mongoose.Schema({
     createdAt : {type : Date, default : Date.now}
 });
 
-module.exports = mongoose.model("EcommerceBanners",EcommerceBannersSchema);
+export default mongoose.model("EcommerceBanners", EcommerceBannersSchema);
