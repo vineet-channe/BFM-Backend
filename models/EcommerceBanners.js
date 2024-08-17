@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-mongoose.connect("mongodb+srv://vineetchanne:K8JOFTGn9V7n78FX@metaverse-marketplace.pz6ft.mongodb.net/EcommerceBanners?retryWrites=true&w=majority&appName=Metaverse-Marketplace");
+dotenv.config({path : "../config/.env"});
+
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to DB1'))
+    .catch(err => console.error('Error connecting to DB1:', err));
 
 const EcommerceBannersSchema = new mongoose.Schema({
     title : String,
