@@ -1,4 +1,4 @@
-import Metaverses from "../models/Metaverses";
+import Metaverses from "../models/Metaverses.js";
 
 export const getMetaverses = async (req, res) => {
     try {

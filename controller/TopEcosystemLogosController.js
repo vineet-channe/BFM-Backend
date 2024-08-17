@@ -1,4 +1,4 @@
-import TopEcosystemLogos from "../models/TopEcosystemLogos";
+import TopEcosystemLogos from "../models/TopEcosystemLogos.js";
 
 export const getAllTopEcosystemLogos = async (req, res) => {
     try {

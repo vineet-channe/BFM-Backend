@@ -1,4 +1,4 @@
-import News from "../models/News";
+import News from "../models/News.js";
 export const getNews = async(req,res) => {
     try{
         const news = await News.findById(req.params.id);

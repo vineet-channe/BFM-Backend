@@ -1,4 +1,4 @@
-import Articles from "../models/Articles";
+import Articles from "../models/Articles.js";
 
 export const getArticles = async (req, res) => {
     try {

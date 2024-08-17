@@ -1,4 +1,4 @@
-import EcommerceBanners from "../models/EcommerceBanners";
+import EcommerceBanners from "../models/EcommerceBanners.js";
 
 export const postEcommerceBanners = async (req,res)=>{
     try

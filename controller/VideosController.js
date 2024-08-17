@@ -1,4 +1,4 @@
-import Videos from "../models/Videos";
+import Videos from "../models/Videos.js";
 
 export const getVideos = async (req, res) => {
     try {

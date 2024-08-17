@@ -1,4 +1,4 @@
-import FooterContent from "../models/FooterContent";
+import FooterContent from "../models/FooterContent.js";
 
 export const getFooterContent = async (req,res)=>{
     try{
