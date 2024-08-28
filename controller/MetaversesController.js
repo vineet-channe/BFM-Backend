@@ -1,4 +1,5 @@
 import Metaverses from "../models/Metaverses.js";
+import path from "path";
 
 export const getMetaverses = async (req, res) => {
     try {
@@ -23,12 +24,31 @@ export const getAllMetaverses = async (req, res) => {
 
 export const postMetaverses = async (req, res) => {
     try {
-        const newMetaverse = await Metaverses.create(req.body);
-        res.status(201).json(newMetaverse);
+        
+        const { title, link, description, activeMembers, socials, category, news } = req.body;
+        const image = req.file ? req.file.path : ''; 
+        const newsArray = JSON.parse(news);
+        const newMetaverse = await Metaverses.create({
+            title,
+            image,
+            link,
+            description,
+            activeMembers,
+            socials, 
+            category,
+            news: newsArray,
+        });
+        console.log(req.body);
+        console.log(req.file);
+        res.status(201).json({
+            message: "Metaverse created successfully",
+            data: newMetaverse,
+        });
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 };
+
 
 
 export const updateMetaverses = async (req, res) => {
