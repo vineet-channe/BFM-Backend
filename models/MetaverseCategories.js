@@ -8,7 +8,7 @@ mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology
     .catch(err => console.error('Error connecting to DB1:', err));
 
 const MetaverseCategoriesSchema = new mongoose.Schema({
-    title : String,
+    title : {type : String},
     metaverses  : [{type : mongoose.Schema.Types.ObjectId, ref : 'Metaverse'}]
 });
 

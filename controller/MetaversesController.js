@@ -1,4 +1,5 @@
 import Metaverses from "../models/Metaverses.js";
+import MetaverseCategories from "../models/MetaverseCategories.js";
 import path from "path";
 
 export const getMetaverses = async (req, res) => {
@@ -24,10 +25,16 @@ export const getAllMetaverses = async (req, res) => {
 
 export const postMetaverses = async (req, res) => {
     try {
-        
+
         const { title, link, description, activeMembers, socials, category, news } = req.body;
         const image = req.file ? req.file.path : ''; 
         const newsArray = JSON.parse(news);
+        let categoryDoc = await MetaverseCategories.findOne({ title: category });
+        
+        if (!categoryDoc) {
+            // If the category doesn't exist, create a new one
+            categoryDoc = await MetaverseCategories.create({ title: [category] });
+        }
         const newMetaverse = await Metaverses.create({
             title,
             image,
