@@ -33,7 +33,7 @@ export const postMetaverses = async (req, res) => {
         
         if (!categoryDoc) {
             // If the category doesn't exist, create a new one
-            categoryDoc = await MetaverseCategories.create({ title: [category] });
+            categoryDoc = await MetaverseCategories.create({ title: category });
         }
         const newMetaverse = await Metaverses.create({
             title,
