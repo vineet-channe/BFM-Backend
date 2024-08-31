@@ -28,7 +28,7 @@ export const postMetaverses = async (req, res) => {
 
         const { title, link, description, activeMembers, socials, category, news } = req.body;
         const image = req.file ? req.file.path : ''; 
-        const newsArray = JSON.parse(news);
+        // const newsArray = JSON.parse(news);
         let categoryDoc = await MetaverseCategories.findOne({ title: category });
         
         if (!categoryDoc) {
@@ -43,7 +43,7 @@ export const postMetaverses = async (req, res) => {
             activeMembers,
             socials, 
             category,
-            news: newsArray,
+            news
         });
         console.log(req.body);
         console.log(req.file);

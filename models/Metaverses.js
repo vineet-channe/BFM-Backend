@@ -17,7 +17,7 @@ const MetaversesSchema = new mongoose.Schema({
     activeMembers: Number,
     socials: [{type: String}],
     category: { type: mongoose.Schema.Types.ObjectId, ref: 'MetaverseCategory' },
-    news: [{ type: mongoose.Schema.Types.ObjectId, ref: 'News' }]
+    news: String
 });
 
 export default mongoose.model('Metaverses', MetaversesSchema);
