@@ -53,10 +53,26 @@ export const postMetaverses = async (req, res) => {
             description,
             activeMembers,
             socials,
-            category: categoryDoc._id, // Link the category's ID
+            category: categoryDoc._id,
             news
         });
+        
+        // Log the new metaverse
+        console.log("New Metaverse Created:", newMetaverse);
+
+        try {
+            const mydata = await MetaverseCategories.findByIdAndUpdate(
+                categoryDoc._id,
+                { $push: { metaverses: newMetaverse._id } },
+                { new: true, useFindAndModify: false }
+            );
+            console.log("Update Result:", mydata);
+        } catch (updateError) {
+            console.error("Error updating category:", updateError.message);
+        }
+
         console.log("postMetaverses: Metaverse created:", newMetaverse);
+        
         res.status(201).json({
             message: "Metaverse created successfully",
             data: newMetaverse,
@@ -66,6 +82,7 @@ export const postMetaverses = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
 
 export const updateMetaverses = async (req, res) => {
     try {
@@ -90,12 +107,23 @@ export const updateMetaverses = async (req, res) => {
 
 export const deleteMetaverses = async (req, res) => {
     try {
-        console.log("deleteMetaverses: Deleting metaverse with ID:", req.params.id);
-        const deletedMetaverse = await Metaverses.findByIdAndDelete(req.params.id);
+        const metaverseId = req.params.id;
+        console.log("deleteMetaverses: Deleting metaverse with ID:", metaverseId);
+
+        // Delete the metaverse
+        const deletedMetaverse = await Metaverses.findByIdAndDelete(metaverseId);
+
+        // Remove the metaverse ID from the metaverses array in MetaverseCategories
+        await MetaverseCategories.updateMany(
+            { metaverses: mongoose.Types.ObjectId(metaverseId) }, // Find categories containing the metaverse ID
+            { $pull: { metaverses: mongoose.Types.ObjectId(metaverseId) } } // Remove the ID from the array
+        );
+
         if (!deletedMetaverse) {
             console.log("deleteMetaverses: Metaverse not found");
             return res.status(404).json({ message: "Metaverse not found" });
         }
+
         console.log("deleteMetaverses: Metaverse deleted");
         res.status(200).json({ message: "Metaverse deleted successfully" });
     } catch (err) {
