@@ -3,6 +3,7 @@ import MetaverseCategories from "../models/MetaverseCategories.js";
 import path from "path";
 import mongoose from "mongoose";
 import News from "../models/News.js"
+import NewsCategories from "../models/NewsCategories.js"
 
 export const getMetaverses = async (req, res) => {
     try {
@@ -49,6 +50,14 @@ export const postMetaverses = async (req, res) => {
         }
 
         let newsDoc = await News.create({ title: news });
+
+        let newscategoryDoc = await NewsCategories.findOne({ title: category });
+        if (!newscategoryDoc) {
+            console.log("postMetaverses: Category not found, creating new category");
+            newscategoryDoc = await NewsCategories.create({ title: category });
+        } else {
+            console.log("postMetaverses: Category found:", newscategoryDoc);
+        }
 
         const newMetaverse = await Metaverses.create({
             title,
