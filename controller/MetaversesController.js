@@ -1,6 +1,8 @@
 import Metaverses from "../models/Metaverses.js";
 import MetaverseCategories from "../models/MetaverseCategories.js";
 import path from "path";
+import mongoose from "mongoose";
+import News from "../models/News.js"
 
 export const getMetaverses = async (req, res) => {
     try {
@@ -46,6 +48,8 @@ export const postMetaverses = async (req, res) => {
             console.log("postMetaverses: Category found:", categoryDoc);
         }
 
+        let newsDoc = await News.create({ title: news });
+
         const newMetaverse = await Metaverses.create({
             title,
             image,
@@ -54,7 +58,7 @@ export const postMetaverses = async (req, res) => {
             activeMembers,
             socials,
             category: categoryDoc._id,
-            news
+            news: newsDoc._id
         });
         
         // Log the new metaverse
@@ -108,6 +112,12 @@ export const updateMetaverses = async (req, res) => {
 export const deleteMetaverses = async (req, res) => {
     try {
         const metaverseId = req.params.id;
+
+        // Ensure the metaverseId is a valid ObjectId
+        if (!mongoose.Types.ObjectId.isValid(metaverseId)) {
+            return res.status(400).json({ message: "Invalid Metaverse ID" });
+        }
+
         console.log("deleteMetaverses: Deleting metaverse with ID:", metaverseId);
 
         // Delete the metaverse
@@ -131,3 +141,4 @@ export const deleteMetaverses = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
