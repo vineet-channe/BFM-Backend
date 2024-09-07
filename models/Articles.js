@@ -11,6 +11,7 @@ const ArticlesSchema = new mongoose.Schema({
     title: String,
     source: String,
     link: String,
+    slug: { type: String, unique: true },
     createdAt: { type: Date, default: Date.now }
 });
 

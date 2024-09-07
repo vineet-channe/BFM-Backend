@@ -2,13 +2,14 @@ import Metaverses from "../models/Metaverses.js";
 import MetaverseCategories from "../models/MetaverseCategories.js";
 import path from "path";
 import mongoose from "mongoose";
-import News from "../models/News.js"
-import NewsCategories from "../models/NewsCategories.js"
+import News from "../models/News.js";
+import NewsCategories from "../models/NewsCategories.js";
+import slugify from "slugify";
 
 export const getMetaverses = async (req, res) => {
     try {
-        console.log("getMetaverses: Fetching metaverse with ID:", req.params.id);
-        const metaverse = await Metaverses.findById(req.params.id);
+        console.log("getMetaverses: Fetching metaverse with slug:", req.params.slug);
+        const metaverse = await Metaverses.findOne({slug : req.params.slug});
         if (!metaverse) {
             console.log("getMetaverses: Metaverse not found");
             return res.status(404).json({ message: "Metaverse not found" });
@@ -41,6 +42,8 @@ export const postMetaverses = async (req, res) => {
         console.log("postMetaverses: Received data:", req.body);
         console.log("postMetaverses: Received file:", req.file);
 
+        const slug = slugify(title, { lower: true, strict: true });
+
         let categoryDoc = await MetaverseCategories.findOne({ title: category });
         if (!categoryDoc) {
             console.log("postMetaverses: Category not found, creating new category");
@@ -67,7 +70,8 @@ export const postMetaverses = async (req, res) => {
             activeMembers,
             socials,
             category: categoryDoc._id,
-            news: newsDoc._id
+            news: newsDoc._id,
+            slug
         });
         
         // Log the new metaverse

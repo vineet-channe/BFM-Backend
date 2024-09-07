@@ -11,6 +11,7 @@ const VideosSchema = new mongoose.Schema({
     title : String,
     url : String,
     platform : String,
+    slug: { type: String, unique: true },
     createdAt : {type : Date, default : Date.now}
 });
 

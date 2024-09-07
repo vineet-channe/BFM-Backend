@@ -15,6 +15,7 @@ const MetaversesSchema = new mongoose.Schema({
     link: String,
     description: String,
     activeMembers: Number,
+    slug: { type: String, unique: true },
     socials: [{type: String}],
     category: { type: mongoose.Schema.Types.ObjectId, ref: 'MetaverseCategory' },
     news: [{type:String}]

@@ -10,6 +10,7 @@ mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology
 const NewsSchema = new mongoose.Schema({
     title : String,
     link : String,
+    slug: { type: String, unique: true },
     metaverse : {type : mongoose.Schema.Types.ObjectId , ref : "Metaverses"}
 });
 
