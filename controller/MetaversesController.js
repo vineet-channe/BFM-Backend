@@ -43,6 +43,7 @@ export const postMetaverses = async (req, res) => {
         console.log("postMetaverses: Received file:", req.file);
 
         const slug = slugify(title, { lower: true, strict: true });
+        const newsslug = slugify(news, {lower: true, strict: true});
 
         let categoryDoc = await MetaverseCategories.findOne({ title: category });
         if (!categoryDoc) {
@@ -52,7 +53,11 @@ export const postMetaverses = async (req, res) => {
             console.log("postMetaverses: Category found:", categoryDoc);
         }
 
-        let newsDoc = await News.create({ title: news });
+        // let newsDoc = await News.create({ 
+        //     title: news,
+        //     link: null,
+        //     slug: newsslug,
+        // });
 
         let newscategoryDoc = await NewsCategories.findOne({ title: category });
         if (!newscategoryDoc) {
@@ -70,7 +75,7 @@ export const postMetaverses = async (req, res) => {
             activeMembers,
             socials,
             category: categoryDoc._id,
-            news: newsDoc._id,
+            news,
             slug
         });
         

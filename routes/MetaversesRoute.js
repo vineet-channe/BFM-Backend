@@ -5,10 +5,10 @@ import { getMetaverses,getAllMetaverses,postMetaverses,updateMetaverses,deleteMe
 const Metaversesrouter = express.Router();
 
 Metaversesrouter.get('/',getAllMetaverses);
-Metaversesrouter.get('/:id',getMetaverses);
+Metaversesrouter.get('/:slug',getMetaverses);
 Metaversesrouter.post('/',upload,postMetaverses);
-Metaversesrouter.put('/:id',upload,updateMetaverses);
-Metaversesrouter.delete("/:id",upload,deleteMetaverses);
+Metaversesrouter.put('/:slug',upload,updateMetaverses);
+Metaversesrouter.delete("/:slug",upload,deleteMetaverses);
 
 export default Metaversesrouter;
 
