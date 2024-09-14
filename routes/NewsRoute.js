@@ -3,9 +3,9 @@ import { getAllNews,getNews,postNews,updateNews,deleteNews } from "../controller
 const Newsrouter = express.Router();
 
 Newsrouter.get('/',getAllNews);
-Newsrouter.get('/:id',getNews);
+Newsrouter.get('/:slug',getNews);
 Newsrouter.post('/',postNews);
-Newsrouter.put('/:id',updateNews);
-Newsrouter.delete("/:id",deleteNews);
+Newsrouter.put('/:slug',updateNews);
+Newsrouter.delete("/:slug",deleteNews);
 
 export default Newsrouter;

@@ -79,7 +79,14 @@ export const postMetaverses = async (req, res) => {
             slug
         });
         
+        // let newsDoc = await News.create({ 
+        //     title: news,
+        //     link,
+        //     newsslug,
+        // });
+        
         // Log the new metaverse
+
         console.log("New Metaverse Created:", newMetaverse);
 
         try {
@@ -92,12 +99,18 @@ export const postMetaverses = async (req, res) => {
         } catch (updateError) {
             console.error("Error updating category:", updateError.message);
         }
+        const populatedMetaverse = await Metaverses.findById(newMetaverse._id)
+        .populate({
+            path: 'category',
+            select: 'title -_id' // Populate only the title field and exclude the _id field
+        });
 
-        console.log("postMetaverses: Metaverse created:", newMetaverse);
+
+        console.log("postMetaverses: Metaverse created:", populatedMetaverse);
         
         res.status(201).json({
             message: "Metaverse created successfully",
-            data: newMetaverse,
+            data: populatedMetaverse,
         });
     } catch (err) {
         console.error("postMetaverses: Error creating metaverse:", err.message);
